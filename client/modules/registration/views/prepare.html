@@ -20,17 +20,16 @@ url: /reg/prepare
                                name="phone" 
                                ng-model="vm.params.phone" 
                                ng-blur="vm.validate()"
-                               placeholder="Mobile number" required/>
-                        <span class="err" ng-show="vm.params.phone.$dirty && vm.form.$invalid">
-                            {{vm.params.phone.$dirty}}
-                            Mobile number is not correct
-                        </span>
+                               ui-mask="+9 999 999 99 99"
+                               ui-mask-placeholder 
+                               ui-mask-placeholder-char="space" required/>
                     </label>
                 </div>
                 <div class="grid-content">
-                    <button class="button success" ng-disabled="vm.form.$invalid">
-                        Get confirmation code
-                    </button>
+                    <input type="submit" class="button success" 
+                           ng-class="{'disabled': !vm.validate()}"  
+                           ng-disabled="!vm.validate()" 
+                           value="Get confirmation code"/>
                 </div>
             </div>
         </div>

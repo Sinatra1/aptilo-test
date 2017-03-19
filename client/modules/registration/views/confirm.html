@@ -20,17 +20,21 @@ url: /reg/confirm
                                name="code" 
                                ng-model="vm.params.code" 
                                ng-blur="vm.validate()"
-                               placeholder="Confirmation code" required/>
-                        <span class="err" ng-show="vm.params.code.$dirty && vm.form.$invalid">
-                            {{vm.params.code.$dirty}}
-                            Confirmation code is not correct
-                        </span>
+                               ui-mask="9999"
+                               ui-mask-placeholder 
+                               ui-mask-placeholder-char="space" required/>
                     </label>
                 </div>
+                <div class="grid-content" ng-show="vm.error">
+                    <p>
+                        Confirmation code is not correct
+                    </p>
+                </div>
                 <div class="grid-content">
-                    <button class="button success" ng-disabled="vm.form.$invalid">
-                        Confirm
-                    </button>
+                    <input type="submit" class="button success" 
+                           ng-class="{'disabled': !vm.validate()}"  
+                           ng-disabled="!vm.validate()" 
+                           value="Confirm"/>
                 </div>
             </div>
         </div>

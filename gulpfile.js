@@ -41,12 +41,14 @@ var paths = {
     'bower_components/foundation-apps/js/vendor/**/*.js',
     'bower_components/foundation-apps/js/angular/**/*.js',
     '!bower_components/foundation-apps/js/angular/app.js',
-    'bower_components/angular-input-masks/angular-input-masks.min.js',
+    'bower_components/angular-ui-mask/mask.min.js',
+    'bower_components/angular-resource/angular-resource.min.js',
   ],
   // These files are for your app's JavaScript
   appJS: [
     'client/assets/js/app.js',
     'client/modules/basic/controllers/*.js',
+    'client/modules/basic/services/*.js',
     'client/modules/registration/controllers/*.js',
     'client/modules/registration/services/*.js'
   ]

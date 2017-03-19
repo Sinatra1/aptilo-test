@@ -2,29 +2,18 @@
     'use strict';
 
     angular.module('application')
-            .service('requestService', ['$q', '$http', function ($q, $http) {
+            .service('requestService', ['$q', '$http', '$resource', function ($q, $http, $resource) {
 
                     var service = this;
 
-                    service.url = '/';
+                    service.url = '/assets/json/';
 
-                    service.request = function (method, httpMethod, config, data) {
+                    service.request = function (method, data) {
                         var deferred = $q.defer();
-
-                        if (!httpMethod) {
-                            httpMethod = 'GET';
-                        }
-
-                        $http(angular.extend({
-                            method: httpMethod,
-                            url: service.getMethodUrl(method),
-                            data: data
-                        }, config)).then(function (response) {
-
+                        
+                        $resource(service.getMethodUrl(method)).get(function (response) {
                             deferred.resolve(response);
-
-                        }, function (response) {
-
+                        }, function(response) {
                             deferred.reject(response);
                         });
 
@@ -32,7 +21,7 @@
                     };
 
                     service.getMethodUrl = function (method) {
-                        return service.url + method;
+                        return service.url + method + '.json';
                     };
 
                 }]);

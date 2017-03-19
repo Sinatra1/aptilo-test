@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('application')
-            .controller('BasicController', ['$location',
-                function ($location) {
+            .controller('BasicController', ['$location', 'requestService',
+                function ($location, requestService) {
 
                     var vm = this;
                     
@@ -11,6 +11,8 @@
                     vm.params = {};
                     vm.baseUrl = '#!';
                     vm.redirectUrl = null;
+                    vm.$location = $location;
+                    vm.requestService = requestService;
                     
                     vm.submit = function () {
                         var vm = this;
@@ -40,7 +42,7 @@
                             return;
                         }
                         
-                        $location.path(vm.redirectUrl);
+                        vm.$location.path(vm.redirectUrl);
                     };
                     
                     vm.init = function () {

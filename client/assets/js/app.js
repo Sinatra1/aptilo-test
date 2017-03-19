@@ -4,6 +4,8 @@
   angular.module('application', [
     'ui.router',
     'ngAnimate',
+    'ui.mask',
+    'ngResource',
 
     //foundation
     'foundation',
