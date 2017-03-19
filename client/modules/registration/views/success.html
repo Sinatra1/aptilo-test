@@ -1,0 +1,24 @@
+<!--
+---
+name: success
+url: /reg/success
+---
+-->
+<div class="grid-container" ng-controller="RegPrepareController as vm" ng-init="vm.init()">
+    <form id="regPrepareForm" name="regPrepareForm" ng-model="regPrepareForm" ng-submit="vm.submit()">
+        <div class="grid-block">
+            <div class="grid-container small-12 medium-6">
+                <div class="grid-content">
+                    <p>
+                        Congratulations, your register is successfully completed.
+                    </p>
+                </div>
+                <div class="grid-content">
+                    <a class="button success" ng-href="/">
+                        To home page
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

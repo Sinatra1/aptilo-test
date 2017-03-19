@@ -1,0 +1,80 @@
+<!--
+---
+name: contacts
+url: /reg/contacts
+---
+-->
+<div class="grid-container" ng-controller="RegContactsController as vm" ng-init="vm.init()">
+    <form id="regContactsForm" name="regContactsForm" ng-model="regContactsForm" ng-submit="vm.submit()">
+        <div class="grid-block">
+            <div class="grid-container small-12 medium-6">
+                <div class="grid-content">
+                    <p>
+                        Please, enter your contact information for finishing the registration
+                    </p>
+                </div>
+                <div class="grid-content">
+                    <label>
+                        Your name
+                        <input type="text" 
+                               name="name" 
+                               ng-model="vm.params.name" 
+                               ng-blur="vm.validate()"
+                               placeholder="Your name" required/>
+                        <span class="err" ng-show="vm.params.name.$dirty && vm.form.$invalid">
+                            {{vm.params.name.$dirty}}
+                            Name is not correct
+                        </span>
+                    </label>
+                </div>
+                <div class="grid-content">
+                    <label>
+                        Email
+                        <input type="email" 
+                               name="name" 
+                               ng-model="vm.params.email" 
+                               ng-blur="vm.validate()"
+                               placeholder="Email" required/>
+                        <span class="err" ng-show="vm.params.email.$dirty && vm.form.$invalid">
+                            {{vm.params.email.$dirty}}
+                            Email is not correct
+                        </span>
+                    </label>
+                </div>
+                <div class="grid-content">
+                    <label>
+                        Password
+                        <input type="text" 
+                               name="name" 
+                               ng-model="vm.params.password" 
+                               ng-blur="vm.validate()"
+                               placeholder="Password" required/>
+                        <span class="err" ng-show="vm.params.password.$dirty && vm.form.$invalid">
+                            {{vm.params.password.$dirty}}
+                            Password is not correct
+                        </span>
+                    </label>
+                </div>
+                <div class="grid-content">
+                    <label>
+                        Password twice
+                        <input type="text" 
+                               name="name" 
+                               ng-model="vm.passwordTwice" 
+                               ng-blur="vm.validate()"
+                               placeholder="Password twice" required/>
+                        <span class="err" ng-show="vm.params.passwordTwice.$dirty && vm.form.$invalid">
+                            {{vm.params.passwordTwice.$dirty}}
+                            Passwords are not equal
+                        </span>
+                    </label>
+                </div>
+                <div class="grid-content">
+                    <button class="button success" ng-disabled="vm.form.$invalid">
+                        Finish registration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

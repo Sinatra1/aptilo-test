@@ -1,0 +1,38 @@
+<!--
+---
+name: prepare
+url: /reg/prepare
+---
+-->
+<div class="grid-container" ng-controller="RegPrepareController as vm" ng-init="vm.init()">
+    <form id="regPrepareForm" name="regPrepareForm" ng-model="regPrepareForm" ng-submit="vm.submit()">
+        <div class="grid-block">
+            <div class="grid-container small-12 medium-6">
+                <div class="grid-content">
+                    <p>
+                        Please, enter your mobile number for registration
+                    </p>
+                </div>
+                <div class="grid-content">
+                    <label>
+                        Mobile number
+                        <input type="text" 
+                               name="phone" 
+                               ng-model="vm.params.phone" 
+                               ng-blur="vm.validate()"
+                               placeholder="Mobile number" required/>
+                        <span class="err" ng-show="vm.params.phone.$dirty && vm.form.$invalid">
+                            {{vm.params.phone.$dirty}}
+                            Mobile number is not correct
+                        </span>
+                    </label>
+                </div>
+                <div class="grid-content">
+                    <button class="button success" ng-disabled="vm.form.$invalid">
+                        Get confirmation code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
