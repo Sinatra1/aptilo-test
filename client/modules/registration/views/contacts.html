@@ -4,7 +4,7 @@ name: contacts
 url: /reg/contacts
 ---
 -->
-<div class="grid-container" ng-controller="RegContactsController as vm" ng-init="vm.init()">
+<div class="grid-container vertical-center" ng-controller="RegContactsController as vm" ng-init="vm.init()">
     <form id="regContactsForm" name="regContactsForm" ng-model="regContactsForm" ng-submit="vm.submit()">
         <div class="grid-block">
             <div class="grid-container small-12 medium-6">
@@ -21,9 +21,9 @@ url: /reg/contacts
                                ng-model="vm.params.name" 
                                ng-blur="vm.validate()"
                                placeholder="Your name" required/>
-                        <span class="err" ng-show="regContactsForm.name.$dirty && vm.form.name.$invalid">
+                        <div class="notification alert" ng-class="{'is-active': vm.form.name.$invalid}">
                             Name is not correct
-                        </span>
+                        </div>
                     </label>
                 </div>
                 <div class="grid-content">
@@ -34,9 +34,9 @@ url: /reg/contacts
                                ng-model="vm.params.email" 
                                ng-blur="vm.validate()"
                                placeholder="Email" required/>
-                        <span class="err" ng-show="vm.form.email.$invalid">
+                        <div class="notification alert" ng-class="{'is-active': vm.form.email.$invalid}">
                             Email is not correct
-                        </span>
+                        </div>
                     </label>
                 </div>
                 <div class="grid-content">
@@ -47,9 +47,9 @@ url: /reg/contacts
                                ng-model="vm.params.password" 
                                ng-blur="vm.validate()"
                                placeholder="Password" required/>
-                        <span class="err" ng-show="regContactsForm.password.$dirty && vm.form.password.$invalid">
+                        <div class="notification alert" ng-class="{'is-active': vm.form.password.$invalid}">
                             Password must be more then 6 digits
-                        </span>
+                        </div>
                     </label>
                 </div>
                 <div class="grid-content">
@@ -60,15 +60,15 @@ url: /reg/contacts
                                ng-model="vm.passwordTwice" 
                                ng-blur="vm.validate()"
                                placeholder="Password twice" required/>
-                        <span class="err" ng-show="regContactsForm.passwordTwice.$dirty && vm.form.passwordTwice.$invalid">
+                        <div class="notification alert" ng-class="{'is-active': vm.form.passwordTwice.$invalid}">
                             Passwords are not equal
-                        </span>
+                        </div>
                     </label>
                 </div>
-                <div class="grid-content" ng-show="vm.error">
-                    <p>
+                <div class="grid-content">
+                    <div class="notification alert" ng-class="{'is-active': vm.error}">
                         Account can't be created
-                    </p>
+                    </div>
                 </div>
                 <div class="grid-content">
                     <input type="submit" class="button success" 

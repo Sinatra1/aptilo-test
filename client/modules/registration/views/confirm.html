@@ -4,7 +4,7 @@ name: confirm
 url: /reg/confirm
 ---
 -->
-<div class="grid-container" ng-controller="RegConfirmController as vm" ng-init="vm.init()">
+<div class="grid-container vertical-center" ng-controller="RegConfirmController as vm" ng-init="vm.init()">
     <form id="regConfirmForm" name="regConfirmForm" ng-model="regConfirmForm" ng-submit="vm.submit()">
         <div class="grid-block">
             <div class="grid-container small-12 medium-6">
@@ -25,10 +25,10 @@ url: /reg/confirm
                                ui-mask-placeholder-char="space" required/>
                     </label>
                 </div>
-                <div class="grid-content" ng-show="vm.error">
-                    <p>
+                <div class="grid-content">
+                    <div class="notification alert" ng-class="{'is-active': vm.error}">
                         Confirmation code is not correct
-                    </p>
+                    </div>
                 </div>
                 <div class="grid-content">
                     <input type="submit" class="button success" 
